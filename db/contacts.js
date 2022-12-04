@@ -31,7 +31,7 @@ async function removeContact({ id }) {
   if (contactForDelete) {
     const result = data.filter((contact) => contact.id !== id);
     await fs.writeFile(contactsPath, JSON.stringify(result, null, 2));
-    return id;
+    return { id: id };
   } else {
     return "Немає контакту для видаення";
   }
